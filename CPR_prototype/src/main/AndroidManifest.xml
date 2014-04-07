@@ -28,11 +28,14 @@
         </activity>
         <activity
             android:name="se.mah.interaction.design.CallForHelp"
-            android:label="@string/title_activity_listen" >
+            android:label="@string/title_activity_listen"
+            >
         </activity>
         <activity
             android:name="se.mah.interaction.design.StartCPR"
-            android:label="@string/title_activity_start_cpr" >
+            android:label="@string/title_activity_start_cpr"
+
+            >
         </activity>
     </application>
 
