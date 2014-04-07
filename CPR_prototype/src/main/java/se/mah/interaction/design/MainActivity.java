@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private final float NOISE = (float) 2.0;
-
+    private int lol = 12;
     static final private double EMA_FILTER = 0.6;
     private MediaRecorder mRecorder = null;
     private double mEMA = 0.0;
