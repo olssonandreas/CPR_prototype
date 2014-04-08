@@ -7,5 +7,7 @@
     <string name="title_activity_shake_nspeak">shakeNspeak</string>
     <string name="title_activity_listen">ListenActivity</string>
     <string name="title_activity_start_cpr">StartCPR</string>
+    <string name="title_activity_compress">Compress</string>
+    <string name="title_activity_blow">Blow</string>
 
 </resources>

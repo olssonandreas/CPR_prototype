@@ -125,19 +125,18 @@ public class CallForHelp extends Activity implements View.OnClickListener {
                             currentText.length());
                     numbers.setText(currentText);
                 }
-
                 break;
-            case R.id.btnCall:
-               String s = numbers.getText().toString();
-                Log.i(s,s);
 
+            case R.id.btnCall:
+
+               String s = numbers.getText().toString();
                 if(s.equals("112")){
 
                  Intent i = new Intent(this, StartCPR.class);
                  startActivity(i);
                 }
-                else {
-
+                else
+                {
                     numbers.setText("");
                 }
 

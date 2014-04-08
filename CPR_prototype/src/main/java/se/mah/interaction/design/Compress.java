@@ -14,16 +14,16 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
 
-public class StartCPR extends Activity implements View.OnClickListener {
-Button b;
+public class Compress extends Activity implements View.OnClickListener {
+    int inc = 0;
+    Button compress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_cpr);
+        setContentView(R.layout.activity_compress);
 
-
-       b = (Button)findViewById(R.id.btnContinue);
-       b.setOnClickListener(this);
+    compress = (Button)findViewById(R.id.btnCompress);
+    compress.setOnClickListener(this);
 
     }
 
@@ -32,7 +32,7 @@ Button b;
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.start_cpr, menu);
+        getMenuInflater().inflate(R.menu.compress, menu);
         return true;
     }
 
@@ -52,9 +52,17 @@ Button b;
     @Override
     public void onClick(View v) {
 
-        if(v == b) {
-            Intent i = new Intent(this, Compress.class);
+        if(v == compress){
+
+        inc++;
+        }
+
+        if(inc >= 30){
+
+            Intent i = new Intent(this, Blow.class);
             startActivity(i);
         }
+
+
     }
 }
