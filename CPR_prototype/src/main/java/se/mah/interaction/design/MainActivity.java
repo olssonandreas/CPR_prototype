@@ -1,5 +1,6 @@
 package se.mah.interaction.design;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -32,6 +33,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -86,16 +88,14 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
 
         // just for visual debugging
-        TextView tvX = (TextView) findViewById(R.id.x_axis);
-        TextView tvY = (TextView) findViewById(R.id.y_axis);
+
 
         float x = event.values[0];
         float y = event.values[1];
         if (!mInitialized) {
             mLastX = x;
             mLastY = y;
-            tvX.setText("0.0");
-            tvY.setText("0.0");
+
             mInitialized = true;
         } else {
             float deltaX = Math.abs(mLastX - x);
@@ -107,10 +107,9 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
             mLastX = x;
             mLastY = y;
-            tvX.setText(Float.toString(deltaX));
-            tvY.setText(Float.toString(deltaY));
 
-            boolean speak;
+            // deltaX deltaY for debug
+         boolean speak;
             if(soundLevel > 10){
                 speak = true;
 

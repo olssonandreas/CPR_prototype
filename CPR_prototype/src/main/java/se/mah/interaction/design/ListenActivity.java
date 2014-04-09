@@ -33,6 +33,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         // create a manager for proximity sensor
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
         // audiomanager
         am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         // set phone to incall for use of earpiece speaker
@@ -104,8 +105,6 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
 
         }
     }
-
-
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
