@@ -1,5 +1,6 @@
 package se.mah.interaction.design;
 
+import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,34 +16,35 @@ import android.view.MenuItem;
 import java.io.IOException;
 
 
-public class Blow extends ActionBarActivity  {
+public class Blow extends Activity {
 
 
     private final float NOISE = (float) 2.0;
-
+    private int lol = 12;
     static final private double EMA_FILTER = 0.6;
     private MediaRecorder mRecorder = null;
     private double mEMA = 0.0;
+    private String s;
+    public boolean isListening = true;
+    private int inc = 0;
+    double soundLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blow);
 
-
-
-        start();
-
+        startTimerThread();
 
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.blow, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -58,7 +60,12 @@ public class Blow extends ActionBarActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void start() {
+
+        Log.i("hej", "hej");
+
         if (mRecorder == null) {
             mRecorder = new MediaRecorder();
             mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -74,12 +81,18 @@ public class Blow extends ActionBarActivity  {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            Log.i("test", "test");
 
             mRecorder.start();
             mEMA = 0.0;
 
+
+
         }
+        soundLevel = getAmplitude();
+        int inc = 0;
+        s = Double.toString(soundLevel);
+        Log.i(s, s);
+
 
     }
 
@@ -103,6 +116,36 @@ public class Blow extends ActionBarActivity  {
         double amp = getAmplitude();
         mEMA = EMA_FILTER * amp + (1.0 - EMA_FILTER) * mEMA;
         return mEMA;
+    }
+
+    private void startTimerThread() {
+        Thread th = new Thread(new Runnable() {
+            private long startTime = System.currentTimeMillis();
+            public void run() {
+                while (isListening == true) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            start();
+
+                            if(soundLevel > 12){
+                                inc++;
+                                String s1 = Integer.toString(inc);
+                                Log.i(s1, "inc");
+                            }
+                        }
+                    });
+                    try {
+                        Thread.sleep(4000);
+                    }
+                    catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        th.start();
     }
 
 }

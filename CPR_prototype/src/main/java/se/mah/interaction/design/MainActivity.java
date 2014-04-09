@@ -1,6 +1,7 @@
 package se.mah.interaction.design;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -14,7 +15,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -26,7 +26,6 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     private Sensor mAccelerometer;
 
     private final float NOISE = (float) 2.0;
-    private int lol = 12;
     static final private double EMA_FILTER = 0.6;
     private MediaRecorder mRecorder = null;
     private double mEMA = 0.0;
@@ -49,7 +48,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -109,8 +108,8 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
             mLastY = y;
 
             // deltaX deltaY for debug
-         boolean speak;
-            if(soundLevel > 10){
+            boolean speak;
+            if(soundLevel > 12){
                 speak = true;
 
             }
@@ -124,6 +123,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
 
                     Intent intent = new Intent(this, ListenActivity.class);
+                    stop();
                     startActivity(intent);
                 }
             }
@@ -136,6 +136,8 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     }
 
     public void start() {
+
+
         if (mRecorder == null) {
             mRecorder = new MediaRecorder();
             mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -151,8 +153,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            Log.i("test", "test");
-
+            Log.i("nej", "mig");
             mRecorder.start();
             mEMA = 0.0;
 
@@ -181,6 +182,4 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         mEMA = EMA_FILTER * amp + (1.0 - EMA_FILTER) * mEMA;
         return mEMA;
     }
-
-
 }
