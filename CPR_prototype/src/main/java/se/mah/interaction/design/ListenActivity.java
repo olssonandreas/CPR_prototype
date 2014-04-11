@@ -19,6 +19,7 @@ import android.view.MenuItem;
 public class ListenActivity extends ActionBarActivity implements SensorEventListener {
 
 
+
     SensorManager mSensorManager;
     Sensor mSensor;
     MediaPlayer mp;

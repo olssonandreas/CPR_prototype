@@ -1,8 +1,10 @@
 package se.mah.interaction.design;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -19,6 +21,7 @@ import android.os.Build;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CallForHelp extends Activity implements View.OnClickListener {
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnCl, btnCall;
@@ -132,11 +135,17 @@ public class CallForHelp extends Activity implements View.OnClickListener {
                String s = numbers.getText().toString();
                 if(s.equals("112")){
 
-                 Intent i = new Intent(this, StartCPR.class);
+                Vibrator vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+                 vb.vibrate(250);
+                    Intent i = new Intent(this, StartCPR.class);
                  startActivity(i);
                 }
                 else
                 {
+                    int dur = Toast.LENGTH_SHORT;
+                  Toast toast =  Toast.makeText(this, "Wrong number!", dur);
+                  toast.show();
+
                     numbers.setText("");
                 }
 

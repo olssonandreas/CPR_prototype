@@ -1,7 +1,9 @@
 package se.mah.interaction.design;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -59,6 +61,9 @@ public class Compress extends Activity implements View.OnClickListener {
 
         if(inc >= 30){
 
+            Vibrator vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+
+            vb.vibrate(250);
             Intent i = new Intent(this, Blow.class);
             startActivity(i);
         }

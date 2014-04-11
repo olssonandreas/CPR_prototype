@@ -2,6 +2,7 @@ package se.mah.interaction.design;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -20,11 +21,13 @@ import java.io.IOException;
 
 public class MainActivity extends ActionBarActivity implements SensorEventListener {
 
+    // sensor variables
     private float mLastX, mLastY, mLastZ;
     private boolean mInitialized;
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
 
+    // audio variables
     private final float NOISE = (float) 2.0;
     static final private double EMA_FILTER = 0.6;
     private MediaRecorder mRecorder = null;
@@ -36,8 +39,10 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // call method for starting mediarecorder
         start();
 
+        // init sensorstuff
         mInitialized = false;
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -80,15 +85,14 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-
+        //
         double soundLevel = getAmplitude();
         String sLevel = Double.toString(soundLevel);
         Log.i(sLevel, sLevel);
 
 
-        // just for visual debugging
 
-
+        // xy for accelerometer
         float x = event.values[0];
         float y = event.values[1];
         if (!mInitialized) {
@@ -107,7 +111,9 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
             mLastX = x;
             mLastY = y;
 
-            // deltaX deltaY for debug
+
+            // deltaX deltaY use for debug
+
             boolean speak;
             if(soundLevel > 12){
                 speak = true;
@@ -115,16 +121,21 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
             }
 
             if(speak =true){
+
+                // kind of shaking
                 if (deltaX > 15 && deltaY > 10  ) {
 
                     Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-                    // Vibrate for 500 milliseconds
+                    // Vibrate for 250 milliseconds
                     v.vibrate(250);
 
+                    // start the next intent and stop mediarecorder
 
-                    Intent intent = new Intent(this, ListenActivity.class);
-                    stop();
-                    startActivity(intent);
+                   FragmentTransaction ft = getFragmentManager().beginTransaction();
+                   TextViewDialog fm = new TextViewDialog();
+                   fm.show(ft, "textview");
+
+
                 }
             }
         }
@@ -137,7 +148,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
     public void start() {
 
-
+        // create mediarecorder
         if (mRecorder == null) {
             mRecorder = new MediaRecorder();
             mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
