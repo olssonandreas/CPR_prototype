@@ -20,5 +20,5 @@
         android:layout_height="match_parent"
         android:id="@+id/imageView"
         android:layout_gravity="center"
-        android:background="@drawable/man_torso"/>
+        android:background="@drawable/facechest"/>
 </LinearLayout>

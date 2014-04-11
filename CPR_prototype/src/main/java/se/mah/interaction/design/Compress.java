@@ -19,6 +19,7 @@ import android.widget.Button;
 public class Compress extends Activity implements View.OnClickListener {
     int inc = 0;
     Button compress;
+    Vibrator vb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,8 @@ public class Compress extends Activity implements View.OnClickListener {
 
     compress = (Button)findViewById(R.id.btnCompress);
     compress.setOnClickListener(this);
+    vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+
 
     }
 
@@ -57,11 +60,11 @@ public class Compress extends Activity implements View.OnClickListener {
         if(v == compress){
 
         inc++;
+        vb.vibrate(50);
         }
 
         if(inc >= 30){
 
-            Vibrator vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
 
             vb.vibrate(250);
             Intent i = new Intent(this, Blow.class);

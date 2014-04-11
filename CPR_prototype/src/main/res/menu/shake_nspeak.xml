@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="se.mah.interaction.design.ListenActivity" >
     
-    <item android:id="@+id/action_help"
+    <item android:id="@+id/action_setting"
         android:title="HELP"
         android:orderInCategory="100"
         app:showAsAction="always" />

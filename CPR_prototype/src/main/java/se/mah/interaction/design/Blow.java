@@ -7,6 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaRecorder;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import java.io.IOException;
 
 public class Blow extends Activity {
 
+    Vibrator vb;
 
     private final float NOISE = (float) 2.0;
     private int lol = 12;
@@ -35,6 +37,7 @@ public class Blow extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blow);
+        vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
 
         startTimerThread();
 
@@ -130,9 +133,13 @@ public class Blow extends Activity {
                             start();
 
                             if(soundLevel > 12){
+
+
                                 inc++;
+                                vb.vibrate(200);
                                 String s1 = Integer.toString(inc);
                                 Log.i(s1, "inc");
+                                stop();
                             }
                         }
                     });

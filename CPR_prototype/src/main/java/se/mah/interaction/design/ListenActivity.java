@@ -1,5 +1,6 @@
 package se.mah.interaction.design;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -70,7 +71,9 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         int id = item.getItemId();
         if (id == R.id.action_help) {
 
-
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            TextViewDialog fm = new TextViewDialog();
+            fm.show(ft, "textview");
             
             return true;
         }

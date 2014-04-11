@@ -57,6 +57,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+
     }
 
     @Override
@@ -75,6 +76,8 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
     protected void onResume() {
         super.onResume();
