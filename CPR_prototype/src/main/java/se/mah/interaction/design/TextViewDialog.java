@@ -21,10 +21,11 @@ public class TextViewDialog extends DialogFragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.textviewdialog, container, false);
+
+
         b = (Button) getDialog().findViewById(R.id.btnOk);
         b.setOnClickListener(this);
         return v;
-
 
 
     }

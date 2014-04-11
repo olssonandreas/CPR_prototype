@@ -9,5 +9,6 @@
     <string name="title_activity_start_cpr">StartCPR</string>
     <string name="title_activity_compress">Compress</string>
     <string name="title_activity_blow">Blow</string>
+    <string name="cpr_title">mobile cpr</string>
 
 </resources>

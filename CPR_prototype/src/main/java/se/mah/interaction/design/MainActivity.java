@@ -65,7 +65,12 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            TextViewDialog fm = new TextViewDialog();
+            fm.show(ft, "textview");
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -130,10 +135,13 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
                     v.vibrate(250);
 
                     // start the next intent and stop mediarecorder
+                    stop();
+                    Intent i = new Intent(this, ListenActivity.class);
+                    startActivity(i);
 
-                   FragmentTransaction ft = getFragmentManager().beginTransaction();
-                   TextViewDialog fm = new TextViewDialog();
-                   fm.show(ft, "textview");
+
+
+
 
 
                 }
