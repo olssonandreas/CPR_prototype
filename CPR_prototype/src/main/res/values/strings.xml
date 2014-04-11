@@ -10,6 +10,7 @@
     <string name="title_activity_compress">Compress</string>
     <string name="title_activity_blow">Blow</string>
     <string name="cpr_title">mobile cpr</string>
-    <string name ="help">Help</string>
+    <string name="help">Help</string>
+    <string name="title_activity_listen_help">ListenHelp</string>
 
 </resources>

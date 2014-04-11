@@ -3,6 +3,7 @@
     package="se.mah.interaction.design" >
 
     <uses-sdk android:minSdkVersion="14" />
+
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -14,8 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="se.mah.interaction.design.MainActivity"
-            android:label="@string/cpr_title"
-            >
+            android:label="@string/cpr_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

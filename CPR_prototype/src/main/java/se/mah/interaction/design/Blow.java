@@ -1,6 +1,7 @@
 package se.mah.interaction.design;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -17,7 +18,7 @@ import android.view.MenuItem;
 import java.io.IOException;
 
 
-public class Blow extends Activity {
+public class Blow extends ActionBarActivity {
 
     Vibrator vb;
 
@@ -32,6 +33,23 @@ public class Blow extends Activity {
     double soundLevel;
 
     @Override
+    protected void onPause() {
+
+        stop();
+
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onResume() {
+        mRecorder = null;
+        start();
+
+        super.onResume();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
@@ -40,7 +58,6 @@ public class Blow extends Activity {
         vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
 
         startTimerThread();
-
 
     }
     @Override
@@ -57,7 +74,13 @@ public class Blow extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            BlowHelp fm = new BlowHelp();
+            fm.show(ft, "textview");
+
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -139,7 +162,6 @@ public class Blow extends Activity {
                                 vb.vibrate(200);
                                 String s1 = Integer.toString(inc);
                                 Log.i(s1, "inc");
-                                stop();
                             }
                         }
                     });
@@ -154,5 +176,6 @@ public class Blow extends Activity {
         });
         th.start();
     }
+
 
 }

@@ -18,9 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class ListenActivity extends ActionBarActivity implements SensorEventListener {
-
-
-
     SensorManager mSensorManager;
     Sensor mSensor;
     MediaPlayer mp;
@@ -59,7 +56,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.shake_nspeak, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -72,7 +69,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         if (id == R.id.action_help) {
 
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            TextViewDialog fm = new TextViewDialog();
+            ListenHelp fm = new ListenHelp();
             fm.show(ft, "textview");
             
             return true;
@@ -92,6 +89,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
             v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
             // start playing sound through earpiece
             mp.start();
+
             // declare new intent
             i = new Intent(this, CallForHelp.class);
 
@@ -101,6 +99,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
 
                 @Override
                 public void onCompletion(MediaPlayer mp) {
+                    mp.stop();
                     // Vibrate for 250 milliseconds
                     v.vibrate(250);
                     startActivity(i);
@@ -128,6 +127,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         super.onPause();
         mSensorManager.unregisterListener(this);
     }
+
 
 
 }

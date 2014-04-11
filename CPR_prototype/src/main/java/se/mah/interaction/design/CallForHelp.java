@@ -1,6 +1,7 @@
 package se.mah.interaction.design;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,8 +24,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CallForHelp extends Activity implements View.OnClickListener {
+public class CallForHelp extends ActionBarActivity implements View.OnClickListener {
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnCl, btnCall;
+
     TextView numbers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,7 @@ public class CallForHelp extends Activity implements View.OnClickListener {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.listen, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -88,7 +90,12 @@ public class CallForHelp extends Activity implements View.OnClickListener {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            CallforHelp_Help fm = new CallforHelp_Help();
+            fm.show(ft, "textview");
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -152,4 +159,5 @@ public class CallForHelp extends Activity implements View.OnClickListener {
                 break;
         }
     }
+
 }
