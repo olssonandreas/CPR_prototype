@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
+    android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView"
-        android:layout_marginTop="130dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FRAGMENTMENTFMAEKJSKL\nFJDSKJFSKJJKFJSKLFSJFK"
+        android:layout_margin="20dp"
+        android:text="When you find a person who seems to be unconscious the first thing you check for is vital signs by shaking his shoulders and using verbal communication to get contact.\nShake the phone and speak into the microphone to complete the step. "
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp" />
 
-</RelativeLayout>
+
+</LinearLayout>

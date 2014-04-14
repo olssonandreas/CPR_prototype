@@ -97,7 +97,6 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         Log.i(sLevel, sLevel);
 
 
-
         // xy for accelerometer
         float x = event.values[0];
         float y = event.values[1];
@@ -120,11 +119,12 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
 
             // deltaX deltaY use for debug
 
-            boolean speak;
+            boolean speak = false;
+
             if(soundLevel > 12){
                 speak = true;
 
-            }
+
 
             if(speak =true){
 
@@ -138,12 +138,11 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
                     // start the next intent and stop mediarecorder
                     stop();
                     Intent i = new Intent(this, ListenActivity.class);
+                    speak = false;
                     startActivity(i);
 
 
-
-
-
+                }
 
                 }
             }

@@ -91,7 +91,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
             mp.start();
 
             // declare new intent
-            i = new Intent(this, CallForHelp.class);
+            i = new Intent(this, Compress.class);
 
             // completionlistener who checks if audio sample is done playing
             // then vibrates and switches activity.

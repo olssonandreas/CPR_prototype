@@ -42,6 +42,10 @@
             android:name="se.mah.interaction.design.Blow"
             android:label="@string/cpr_title" >
         </activity>
+        <activity
+            android:name="se.mah.interaction.design.FinishedActivity"
+            android:label="@string/title_activity_finished" >
+        </activity>
     </application>
 
 </manifest>

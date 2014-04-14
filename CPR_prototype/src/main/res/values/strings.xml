@@ -12,5 +12,6 @@
     <string name="cpr_title">mobile cpr</string>
     <string name="help">Help</string>
     <string name="title_activity_listen_help">ListenHelp</string>
+    <string name="title_activity_finished">FinishedActivity</string>
 
 </resources>

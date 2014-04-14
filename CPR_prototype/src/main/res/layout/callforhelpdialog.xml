@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
+    android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="CALL FOR HELP"
-        android:id="@+id/callforhelpdialog"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        android:layout_margin="20dp"
+        android:text="When a person is not breathing normal and not responding you need to call the emergency phone number 112 and call for help.\nDial 112 and press call to continue."
+        android:id="@+id/callforhelptext"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp" />
+
+
+
+
+
+</LinearLayout>

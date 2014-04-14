@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
+    android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
+        android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="ListenHelp"
+        android:text="If the person is not responding you need to check if the breathing is normal. Put your ear against the phone and listen to complete this step. "
         android:id="@+id/listenhelptext"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"/>
+
+</LinearLayout>

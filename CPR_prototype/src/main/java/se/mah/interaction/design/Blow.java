@@ -3,6 +3,7 @@ package se.mah.interaction.design;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -21,7 +22,6 @@ import java.io.IOException;
 public class Blow extends ActionBarActivity {
 
     Vibrator vb;
-
     private final float NOISE = (float) 2.0;
     private int lol = 12;
     static final private double EMA_FILTER = 0.6;
@@ -162,6 +162,13 @@ public class Blow extends ActionBarActivity {
                                 vb.vibrate(200);
                                 String s1 = Integer.toString(inc);
                                 Log.i(s1, "inc");
+
+                                if(inc >= 2){
+                                    Intent i = new Intent(getBaseContext(), FinishedActivity.class);
+
+                                    startActivity(i);
+
+                                }
                             }
                         }
                     });
@@ -175,6 +182,7 @@ public class Blow extends ActionBarActivity {
             }
         });
         th.start();
+
     }
 
 
