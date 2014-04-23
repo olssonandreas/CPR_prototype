@@ -1,27 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="se.mah.interaction.design.Compress"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame"
+    android:background="@color/white"
+    >
 
     <ImageView
         android:layout_gravity="bottom"
-        android:background="@drawable/chest"
+        android:background="@drawable/chest2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
    />
 
     <Button
-        android:layout_marginBottom="-60px"
+        android:layout_marginBottom="160dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:alpha="0"
         android:id="@+id/btnCompress"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
-</FrameLayout>
+</RelativeLayout>

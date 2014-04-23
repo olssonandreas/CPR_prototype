@@ -13,6 +13,7 @@ import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -80,6 +81,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
     public void onSensorChanged(SensorEvent event) {
         // float who saves proximity values
         float value = event.values[0];
+
         // just for debugging the proximity
         String sValue = String.valueOf(value);
         Log.i(sValue, "VALUE TOWN");
@@ -91,7 +93,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
             mp.start();
 
             // declare new intent
-            i = new Intent(this, Compress.class);
+            i = new Intent(this, CallForHelp.class);
 
             // completionlistener who checks if audio sample is done playing
             // then vibrates and switches activity.

@@ -1,7 +1,9 @@
 package se.mah.interaction.design;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -14,16 +16,23 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
 
+
 public class StartCPR extends Activity implements View.OnClickListener {
-Button b;
+Button a,b;
+ boolean chest = false;
+ boolean mouth = false;
+ Vibrator vb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_cpr);
 
-
-       b = (Button)findViewById(R.id.btnContinue);
+       a = (Button)findViewById(R.id.chestpress);
+       a.setOnClickListener(this);
+       b = (Button)findViewById(R.id.mouthpress);
        b.setOnClickListener(this);
+       vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+
 
     }
 
@@ -53,8 +62,42 @@ Button b;
     public void onClick(View v) {
 
         if(v == b) {
-            Intent i = new Intent(this, Compress.class);
-            startActivity(i);
+            vb.vibrate(250);
+            mouth = true;
+
+            if(chest == true && mouth == true){
+                View background = findViewById(R.id.backgroundimage);
+                background.setBackgroundResource(R.drawable.openshirtmouthfinal);
+
+                try {
+                    Thread.sleep(3000);
+                    Intent i = new Intent(this, Compress.class);
+                    startActivity(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }
+        if(v == a){
+            chest = true;
+            vb.vibrate(250);
+            if(chest == true && mouth == true){
+
+                View background = findViewById(R.id.backgroundimage);
+                background.setBackgroundResource(R.drawable.openshirtmouthfinal);
+
+                try {
+                    Thread.sleep(4000);
+                    Intent i = new Intent(this, Compress.class);
+                    startActivity(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
         }
     }
 }

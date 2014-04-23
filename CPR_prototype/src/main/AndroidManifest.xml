@@ -14,8 +14,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="se.mah.interaction.design.MainActivity"
-            android:label="@string/cpr_title" >
+            android:name="se.mah.interaction.design.StartActivity"
+            android:label="Start" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,28 +23,45 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="se.mah.interaction.design.IntroActivity"
+            android:label="Intro">
+            </activity>
+        <activity
+            android:name=".ShakeNSpeak"
+            android:label="Control " >
+        </activity>
+        <activity
             android:name="se.mah.interaction.design.ListenActivity"
-            android:label="@string/cpr_title" >
+            android:label="2. Control the breathing" >
         </activity>
         <activity
             android:name="se.mah.interaction.design.CallForHelp"
-            android:label="@string/cpr_title" >
+            android:label="3. Call for help" >
         </activity>
         <activity
             android:name="se.mah.interaction.design.StartCPR"
-            android:label="@string/cpr_title" >
+            android:label="Justera kropp" >
         </activity>
         <activity
             android:name="se.mah.interaction.design.Compress"
-            android:label="@string/cpr_title" >
+            android:label="4. Compress the chest" >
         </activity>
         <activity
             android:name="se.mah.interaction.design.Blow"
-            android:label="@string/cpr_title" >
+            android:label="5. Mouth to mouth" >
         </activity>
         <activity
             android:name="se.mah.interaction.design.FinishedActivity"
-            android:label="@string/title_activity_finished" >
+            android:label="Finished!" >
+        </activity>
+        <activity
+            android:name="se.mah.interaction.design.StartActivity"
+            android:label="@string/title_activity_start" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

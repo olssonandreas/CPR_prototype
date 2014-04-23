@@ -1,24 +1,35 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/backgroundimage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="se.mah.interaction.design.StartCPR"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame"
+    android:background="@drawable/manuncons"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Placeholder for correcting posture"
-        android:id="@+id/textView"
-        android:layout_gravity="left|top" />
+
 
     <Button
+        android:alpha="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
-        android:id="@+id/btnContinue"
-        android:layout_gravity="center" />
-</FrameLayout>
+        android:id="@+id/mouthpress"
+        android:layout_gravity="center"
+        android:layout_marginTop="96dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:alpha="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHEST OPEN"
+        android:id="@+id/chestpress"
+        android:layout_below="@+id/mouthpress"
+        android:layout_alignLeft="@+id/mouthpress"
+        android:layout_alignStart="@+id/mouthpress"
+        android:layout_alignRight="@+id/mouthpress"
+        android:layout_alignEnd="@+id/mouthpress" />
+</RelativeLayout>

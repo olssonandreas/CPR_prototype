@@ -67,7 +67,7 @@ public class Compress extends ActionBarActivity implements View.OnClickListener 
         if(v == compress){
 
         inc++;
-        vb.vibrate(50);
+        vb.vibrate(120);
         }
 
         if(inc >= 30){

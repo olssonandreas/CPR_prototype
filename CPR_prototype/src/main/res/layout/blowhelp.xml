@@ -4,13 +4,16 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    >
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="After 30 breast compressions you need to give the person oyxgen. Blow into the microphone to complete the step. "
+        android:text="After 30 breast compressions you need to give the person oxygen. Blow into the microphone to complete the step. "
         android:id="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:textSize="20dp" />

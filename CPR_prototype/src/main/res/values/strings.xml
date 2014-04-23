@@ -13,5 +13,11 @@
     <string name="help">Help</string>
     <string name="title_activity_listen_help">ListenHelp</string>
     <string name="title_activity_finished">FinishedActivity</string>
+    <string name="title_activity_intro">IntroActivity</string>
+
+    <color name="white">#FFFFFF</color>
+
+    <string name="intro_text"><![CDATA[<br><b>Speak</b> or <b>blow</b> into the microphone,<b> shake</b> it, or <br><b>touch</b> the character.<br><p>If you are uncertain what to do, press <b>HELP</b> in the top right corner.]]></string>
+    <string name="title_activity_start">Start</string>
 
 </resources>
