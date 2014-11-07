@@ -17,6 +17,10 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class ListenActivity extends ActionBarActivity implements SensorEventListener {
     SensorManager mSensorManager;
@@ -25,11 +29,18 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
     AudioManager am;
     Vibrator v;
     Intent i;
+    ImageView myImage;
+    float x, y, dx, dy;
+    boolean stopMoving = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listen);
         // create a sensor manager
+        myImage = (ImageView) findViewById(R.id.moveImageface);
+        v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         // create a manager for proximity sensor
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
@@ -49,13 +60,12 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         mp = MediaPlayer.create(this, fileId);
 
 
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -72,11 +82,12 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ListenHelp fm = new ListenHelp();
             fm.show(ft, "textview");
-            
+
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onSensorChanged(SensorEvent event) {
         // float who saves proximity values
@@ -86,7 +97,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         String sValue = String.valueOf(value);
         Log.i(sValue, "VALUE TOWN");
 
-        if(value == 0){
+        if (value == 0 && stopMoving == true) {
             // create a vibration which activates when you finish this activity
             v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
             // start playing sound through earpiece
@@ -110,7 +121,6 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
             });
 
 
-
         }
     }
 
@@ -119,6 +129,7 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
         // TODO Auto-generated method stub
 
     }
+
     protected void onResume() {
         super.onResume();
         mSensorManager.registerListener(this, mSensor,
@@ -131,8 +142,44 @@ public class ListenActivity extends ActionBarActivity implements SensorEventList
     }
 
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
 
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN: {
+                y = event.getY();
+                dy = y - myImage.getY();
+                // Toast.makeText(this, "ACTION_UP " + " Y: " + y, Toast.LENGTH_SHORT).show();
+
+            }
+            break;
+            case MotionEvent.ACTION_MOVE: {
+
+                if(stopMoving == false) {
+                    myImage.setY(event.getY() - dy);
+                }
+                if(event.getY() - dy < -20){
+                    stopMoving = true;
+                    v.vibrate(200);
+                    myImage.setVisibility(View.GONE);
+                    View background = findViewById(R.id.movingbody);
+                    background.setBackgroundResource(R.drawable.withopenmouth);
+                    break;
+                }
+
+            }
+            break;
+            case MotionEvent.ACTION_UP: {
+                //your stuff
+            }
+
+
+        }
+        return true;
+
+    }
 }
+
 
 
 

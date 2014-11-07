@@ -129,7 +129,7 @@ public class ShakeNSpeak extends ActionBarActivity implements SensorEventListene
             if(speak =true){
 
                 // kind of shaking
-                if (deltaX > 6 && deltaY > 6  ) {
+                if (deltaX > 6 && deltaY > 4  ) {
 
                     Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
                     // Vibrate for 250 milliseconds

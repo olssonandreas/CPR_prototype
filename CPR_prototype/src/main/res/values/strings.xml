@@ -17,7 +17,7 @@
 
     <color name="white">#FFFFFF</color>
 
-    <string name="intro_text"><![CDATA[<br><b>Speak</b> or <b>blow</b> into the microphone,<b> shake</b> it, or <br><b>touch</b> the character.<br><p>If you are uncertain what to do, press <b>HELP</b> in the top right corner.]]></string>
+    <string name="intro_text"><![CDATA[In this application you are presented with a person in need of CPR<br>There are different steps which you have to complete in the right order to save his life<br><p>Think of the phone as a human being where you can <b>speak</b> or <b>blow</b> into the microphone,<b> shake</b> the device, or <br><b>touch</b> the character on the display.<br><p>If you are uncertain what to do, every step has a <b>HELP</b> section in the top right corner which guides you in the right direction.]]></string>
     <string name="title_activity_start">Start</string>
 
 </resources>

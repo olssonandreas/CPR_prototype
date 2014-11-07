@@ -9,27 +9,24 @@
     >
 
 
-
     <Button
         android:alpha="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="New Button"
         android:id="@+id/mouthpress"
-        android:layout_gravity="center"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="86dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/chestpress"
+        android:layout_alignStart="@+id/chestpress" />
 
     <Button
         android:alpha="0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CHEST OPEN"
+        android:text="New Button"
         android:id="@+id/chestpress"
+        android:layout_marginTop="19dp"
         android:layout_below="@+id/mouthpress"
-        android:layout_alignLeft="@+id/mouthpress"
-        android:layout_alignStart="@+id/mouthpress"
-        android:layout_alignRight="@+id/mouthpress"
-        android:layout_alignEnd="@+id/mouthpress" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

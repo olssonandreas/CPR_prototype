@@ -12,7 +12,7 @@
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="If the person is not responding you need to check if the breathing is normal. Put your ear against the phone and listen to complete this step. "
+        android:text="If the person is not responding you need to check if the breathing is normal. Correct the persons head posture first and then listen if it has normal, troubled or no breathing at all."
         android:id="@+id/listenhelptext"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"/>

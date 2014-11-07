@@ -18,7 +18,7 @@ import android.widget.Button;
 public class MainActivityHelp extends DialogFragment{
 
     int width = 400;
-    int height = 500;
+    int height = 600;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

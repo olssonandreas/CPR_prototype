@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="When a person is not breathing normal and not responding you need to call the emergency phone number 112 and call for help.\nDial 112 and press call to continue."
+        android:text="When a person is not breathing normal and not responding you need to call the emergency phone number 112 and notify the emergency services. Dial 112 and press call to continue."
         android:id="@+id/callforhelptext"
         android:layout_centerHorizontal="true"
         android:textSize="20dp" />

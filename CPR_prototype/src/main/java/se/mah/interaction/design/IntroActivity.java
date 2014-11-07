@@ -1,5 +1,6 @@
 package se.mah.interaction.design;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class IntroActivity extends ActionBarActivity implements View.OnClickList
 
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.intro, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -44,8 +45,13 @@ public class IntroActivity extends ActionBarActivity implements View.OnClickList
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            IntroHelp fm = new IntroHelp();
+            fm.show(ft, "textview");
             return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

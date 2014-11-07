@@ -33,6 +33,10 @@ public class CallForHelp extends ActionBarActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.call_for_help);
 
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        CallForHelpInfo fm = new CallForHelpInfo();
+        fm.show(ft, "textview");
+
         btn1 = (Button) findViewById(R.id.btn1);
         btn1.setOnClickListener(this);
 
@@ -144,7 +148,7 @@ public class CallForHelp extends ActionBarActivity implements View.OnClickListen
 
                 Vibrator vb = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
                  vb.vibrate(250);
-                    Intent i = new Intent(this, StartCPR.class);
+                    Intent i = new Intent(this, Compress.class);
                  startActivity(i);
                 }
                 else

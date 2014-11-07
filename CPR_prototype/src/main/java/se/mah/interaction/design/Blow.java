@@ -15,12 +15,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.widget.Toast;
 
 import java.io.IOException;
 
 
 public class Blow extends ActionBarActivity {
-
+    private boolean isTouch = false;
     Vibrator vb;
     private final float NOISE = (float) 2.0;
     private int lol = 12;
@@ -32,22 +34,7 @@ public class Blow extends ActionBarActivity {
     private int inc = 0;
     double soundLevel;
 
-    @Override
-    protected void onPause() {
 
-        stop();
-
-        super.onPause();
-
-    }
-
-    @Override
-    protected void onResume() {
-        mRecorder = null;
-        start();
-
-        super.onResume();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +169,44 @@ public class Blow extends ActionBarActivity {
             }
         });
         th.start();
+
+    }
+
+    @Override
+    protected void onPause() {
+
+        stop();
+
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onResume() {
+        mRecorder = null;
+        start();
+
+        super.onResume();
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int Y = (int) event.getY();
+        int eventAction = event.getAction();
+
+        switch (eventAction) {
+
+
+            case MotionEvent.ACTION_UP:
+
+                Toast.makeText(this, "ACTION_UP " + " Y: " + Y, Toast.LENGTH_SHORT).show();
+
+                break;
+
+        }
+
+        return true;
+
+
 
     }
 

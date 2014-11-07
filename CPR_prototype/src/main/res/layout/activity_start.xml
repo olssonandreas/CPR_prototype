@@ -21,7 +21,7 @@
 
     <Button
         android:padding="5dp"
-        android:background="@drawable/button"
+        android:background="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Practice"
@@ -38,6 +38,6 @@
         android:layout_below="@+id/practice"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/button"/>
+        android:background="@color/white"/>
 
 </RelativeLayout>
